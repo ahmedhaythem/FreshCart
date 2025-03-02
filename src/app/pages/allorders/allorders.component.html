@@ -2,11 +2,10 @@
     <div class="container w-[90%] mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 my-5 ">
             @for (order of ordersList;let i=$index;track $index) {
-            <div
-                class=" p-6 bg-gray-300 border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <div class=" p-6 bg-gray-300 border border-gray-200 rounded-lg shadow-sm ">
 
                 <div>
-                    <h2 class="mb-3 text-4xl font-semibold tracking-tight text-center text-gray-900 dark:text-white">
+                    <h2 class="mb-3 text-4xl font-semibold tracking-tight text-center text-gray-900 ">
                         Order: <span class="text-4xl">
                             {{i+1}}</span>
                     </h2>

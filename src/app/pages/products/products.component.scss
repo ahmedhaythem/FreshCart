@@ -1,14 +1,23 @@
 .card{
   overflow: hidden;
+  transition: all 0.5s;
   .addbtn{
       transform: translateY(250%);
       transition: all 0.5s;
   }
   &:hover{
+    box-shadow: 1px 1px 10px #4fa74f;
       button{
           transform: translateY(0%);
       }
   }
+}
+
+.card img{
+  transition: all 0.5s;
+}
+.card:hover img{
+  scale: 110%;
 }
 
 ::ng-deep .ngx-pagination .current {

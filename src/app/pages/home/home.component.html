@@ -39,7 +39,7 @@
 
 
         <input [(ngModel)]="searchTerm" type="text" placeholder="Search"
-            class="placeholder-gray-500 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-[50%] mx-auto mb-5 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+            class="placeholder-gray-500 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-[50%] mx-auto mb-5 p-2.5">
 
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 ">
@@ -47,20 +47,18 @@
             @for (product of productsList |search:searchTerm |paginate:{itemsPerPage: 12,currentPage: p};
             track $index) {
 
-            <div
-                class="card w-full overflow-hidden bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <div class="card w-full overflow-hidden bg-white border border-gray-200 rounded-lg shadow-sm ">
                 <div>
                     <a class="card-img" [routerLink]="['/details',product.id]" routerLinkActive="router-link-active">
                         <img [src]="product.imageCover" class="w-full" alt="">
                     </a>
                     <div class="card-body p-5">
                         <a>
-                            <h5
-                                class="mb-2 text-2xl font-bold tracking-tight line-clamp-1 text-gray-900 dark:text-white">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight line-clamp-1 text-gray-900 ">
                                 {{product.title}}</h5>
                         </a>
 
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">
+                        <p class="mb-3 font-normal text-gray-700  line-clamp-2">
                             {{product.description}}
                         </p>
 
