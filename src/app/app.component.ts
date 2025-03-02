@@ -15,16 +15,16 @@ export class AppComponent {
   constructor(private flowbiteService: FlowbiteService,private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
+    
+        this.flowbiteService.loadFlowbite(flowbite => {
+          
+          console.log('Flowbite loaded', flowbite);
+        });
     this.spinner.show()
     setTimeout(() => {
       
       this.spinner.hide();
     }, 5000);
   
-
-    this.flowbiteService.loadFlowbite(flowbite => {
-      
-      console.log('Flowbite loaded', flowbite);
-    });
   }
 }

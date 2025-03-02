@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
+
    this.cart.getCart().subscribe({
     next:(res)=>{
       console.log(res);
