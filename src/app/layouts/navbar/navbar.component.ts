@@ -1,5 +1,5 @@
 import { FlowbiteService } from './../../core/services/flowbite.service';
-import { Component, computed, Input } from '@angular/core';
+import { Component, computed, Input, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { CartService } from '../../core/services/cart.service';
@@ -12,17 +12,12 @@ import { TranslationService } from '../../core/services/translation.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   @Input()isLogin:boolean=true
   constructor(private flowbiteService:FlowbiteService,private auth:AuthService,private cart:CartService,private translation:TranslationService){}
   numOfCratItems=computed(()=>this.cart.numOfCartItems())
 
   ngOnInit(): void {
-   this.flowbiteService.loadFlowbite(flowbite=>{
-    console.log('Flowbite loaded',flowbite);
-    
-   })
-
 
    this.cart.getCart().subscribe({
     next:(res)=>{
