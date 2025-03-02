@@ -5,6 +5,7 @@ import { AuthService } from '../../core/services/auth.service';
 import { CartService } from '../../core/services/cart.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslationService } from '../../core/services/translation.service';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +19,11 @@ export class NavbarComponent implements OnInit {
   numOfCratItems=computed(()=>this.cart.numOfCartItems())
 
   ngOnInit(): void {
-
+    initFlowbite()
+    this.flowbiteService.loadFlowbite(flowbite => {
+          
+      console.log('Flowbite loaded', flowbite);
+    });
 
    this.cart.getCart().subscribe({
     next:(res)=>{
@@ -27,6 +32,8 @@ export class NavbarComponent implements OnInit {
       
     }
    })
+
+   
   }
 
   logout(){

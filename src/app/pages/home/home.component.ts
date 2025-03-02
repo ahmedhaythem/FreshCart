@@ -13,6 +13,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ToastrService } from 'ngx-toastr';
 import { WishlistService } from '../../core/services/wishlist.service';
 import { Wishlist } from '../../core/interfaces/wishlist';
+import { initFlowbite } from 'flowbite';
+import { FlowbiteService } from '../../core/services/flowbite.service';
 
 
 @Component({
@@ -64,7 +66,7 @@ export class HomeComponent implements OnInit {
     nav: true
   }
 
-  constructor(private products:ProductsService,private category:CategoriesService,private cart:CartService,private toastr: ToastrService,private wishlist:WishlistService){}
+  constructor(private flowbiteService:FlowbiteService ,private products:ProductsService,private category:CategoriesService,private cart:CartService,private toastr: ToastrService,private wishlist:WishlistService){}
   ngOnInit(): void {
     this.getProducts()
     this.getCategories()
