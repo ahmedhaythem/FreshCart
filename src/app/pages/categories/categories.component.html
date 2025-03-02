@@ -1,0 +1,27 @@
+<section class="mt-24 my-5">
+    <div class="container w-[90%] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+
+            @for (category of categoryList; track $index) {
+
+            <div
+                class="card  max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                <div class="card-img overflow-hidden">
+                    <img class="rounded-t-lg w-full object-cover h-[300px]" [src]="category.image" alt="" />
+                </div>
+                <div class="p-5">
+
+                    <h5 class="text-center mb-2 text-3xl font-bold tracking-tight text-green-700 dark:text-white">
+                        {{category.name}}</h5>
+
+
+
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+
+
+</section>

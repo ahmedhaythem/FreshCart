@@ -1,0 +1,15 @@
+.card{
+    transition: all 0.4s;
+}
+
+.card:hover{
+    box-shadow: 1px 1px 10px #4fa74f;
+}
+
+.card:hover img{
+    scale: 110%;
+}
+
+img{
+    transition: all 0.4s;
+}

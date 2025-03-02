@@ -1,0 +1,54 @@
+<section class="bg-gray-300 p-5 m-10 rounded-md mt-24">
+    <h2 class="text-2xl mb-4">Your Cart</h2>
+
+
+    @if (cartData.totalCartPrice>0) {
+
+
+
+    @for (product of cartData.products; track $index) {
+    <div class="product flex items-center">
+        <div class="img w-[150px]">
+            <img [src]="product.product.imageCover" alt="">
+        </div>
+
+        <div class="information w-[90%] flex px-5 justify-between">
+            <div class="data">
+                <h3 class="text-xl mb-4">{{product.product.title}}</h3>
+                <p class="mb-4">price: <span class="text-green-600">{{product.price | currency:"EGP" }}</span></p>
+                <button (click)="removeItem(product.product._id)" class="text-red-600"><i
+                        class="fa fa-trash"></i>Remove</button>
+            </div>
+            <div class="buttons">
+                <button (click)="updateProductQuantity(product.product._id,product.count-1)"
+                    class="text-lg  border border-solid border-green-600 bg-transparent px-3 rounded-md"><i
+                        class="fa fa-minus"></i></button>
+                <span class="text-2xl mx-4">{{product.count}}</span>
+                <button (click)="updateProductQuantity(product.product._id,product.count+1)"
+                    class="text-lg border border-solid border-green-600 bg-transparent px-3 rounded-md"><i
+                        class="fa fa-plus"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    @if (!$last) {
+    <div class="sep bg-gray-600 h-px my-4"></div>
+    }
+    }
+
+    <p class=" text-2xl my-4">Total Cart Price : {{cartData.totalCartPrice |currency:"EGP"}}</p>
+
+    <div class="buttons flex justify-between mt-5">
+        <button (click)="clearCart()"
+            class=" bg-red-500 rounded-md text-white block  px-6 py-2 hover:bg-red-800 mt-3 disabled:bg-red-900">Clear
+            Cart</button>
+        <button [routerLink]="['/checkout',cartId]"
+            class=" bg-green-500 rounded-md text-white block  px-6 py-2 hover:bg-green-800 mt-3 disabled:bg-green-900">CheckOut</button>
+    </div>
+
+    }
+    @else {
+    <p class="text-3xl text-center my-10">Your cart is empty</p>
+    }
+</section>

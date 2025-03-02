@@ -1,0 +1,20 @@
+.card {
+  overflow: hidden;
+}
+.card .addbtn {
+  transform: translateY(250%);
+  transition: all 0.5s;
+}
+.card:hover button {
+  transform: translateY(0%);
+}
+
+::ng-deep .ngx-pagination .current {
+  background: #28a745 !important;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+::ng-deep .ngx-pagination li a:hover {
+  border-radius: 5px;
+}/*# sourceMappingURL=home.component.css.map */

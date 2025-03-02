@@ -1,0 +1,59 @@
+.card{
+    overflow: hidden;
+    transition: all 0.5s;
+    .addbtn{
+        transform: translateY(250%);
+        transition: all 0.5s;
+    }
+    &:hover{
+        box-shadow: 1px 1px 10px #4fa74f;
+        button{
+            transform: translateY(0%);
+        }
+    }
+}
+
+.card img{
+    transition: all 0.5s;
+}
+.card:hover img{
+    scale: 110%;
+}
+
+::ng-deep .ngx-pagination .current {
+    background: #28a745 !important;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  ::ng-deep .ngx-pagination li a:hover {
+    border-radius: 5px;
+  }
+
+  @keyframes heartbeat {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.25);
+    }
+    100%{
+        transform: scale(1);
+    }
+  }
+
+  .heart{
+    color:black;
+    opacity:0.3;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
+   .heart:hover{
+    animation: heartbeat 1s infinite;
+    fill: red;
+    color: red;
+    opacity: 1;
+    transition: opacity 500ms;
+   }

@@ -1,0 +1,86 @@
+<section class="my-5 mt-24">
+    <h1 class="text-4xl text-green-500 text-center my-3">{{"login.title" |
+        translate}}</h1>
+    <form class="w-[80%] mx-auto mt-5" [formGroup]="loginForm" (ngSubmit)="submit()">
+        @if (errorMsg!="") {
+        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <p>{{errorMsg}}</p>
+        </div>
+        }
+
+
+        <div class="mb-2">
+            <label for="email"
+                class="capitalize block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{"login.email" |
+                translate}}</label>
+            <input formControlName="email" type="email" id="email"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+            @let emailControl=loginForm.controls["email"];
+            @if (emailControl.errors && emailControl.touched) {
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        @if (emailControl.hasError("required")) {
+                        <li>email is required</li>
+                        }
+                        @if (emailControl.hasError("email")) {
+                        <li>please enter a vail email</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="mb-2">
+            <label for="password"
+                class="capitalize block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{"login.password" |
+                translate}}</label>
+            <input formControlName="password" type="password" id="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+            @let passwordControl=loginForm.controls["password"];
+            @if (passwordControl.errors && passwordControl.touched) {
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <ul class="mt-1.5 list-disc list-inside">
+                        @if (passwordControl.hasError("required")) {
+                        <li>password is required</li>
+                        }
+                        @if (passwordControl.hasError("minlength")) {
+                        <li>min. lemgth is 6 characters</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+        </div>
+
+
+        <div class="flex justify-between mt-3">
+
+
+            <a class="text-green-600 block  text-xl" routerLink="/forget">{{"login.forget" |
+                translate}}</a>
+            <button class="main-btn " type="submit" [disabled]="isLoading">{{"login.btn" |
+                translate}}
+                @if (isLoading) {
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                }
+            </button>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,9 @@
+::ng-deep .ngx-pagination .current {
+  background: #28a745 !important;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+::ng-deep .ngx-pagination li a:hover {
+  border-radius: 5px;
+}/*# sourceMappingURL=products.component.css.map */
