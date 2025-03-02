@@ -12,18 +12,12 @@ import { initFlowbite } from 'flowbite';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
   isLoading:boolean=false;
   errorMsg:string="";
   constructor(private flowbiteService:FlowbiteService , private auth:AuthService,private router:Router){}
 
-  ngOnInit(): void {
-    
-    this.flowbiteService.loadFlowbite(flowbite => {
-          
-      console.log('Flowbite loaded', flowbite);
-    });
-  }
+
 
   loginForm:FormGroup=new FormGroup({
     email:new FormControl(null,[Validators.required,Validators.email]),

@@ -1,5 +1,5 @@
 import { FlowbiteService } from './../../core/services/flowbite.service';
-import { Component, computed, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, computed, Input, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { CartService } from '../../core/services/cart.service';
@@ -16,15 +16,16 @@ import { initFlowbite } from 'flowbite';
 export class NavbarComponent implements OnInit {
   @Input()isLogin:boolean=true
   constructor(private flowbiteService:FlowbiteService,private auth:AuthService,private cart:CartService,private translation:TranslationService){}
+
   numOfCratItems=computed(()=>this.cart.numOfCartItems())
+  isMenuHidden:boolean=true
+
+  toggleMenu(){
+    this.isMenuHidden=!this.isMenuHidden
+  }
 
   ngOnInit(): void {
-    initFlowbite()
-    this.flowbiteService.loadFlowbite(flowbite => {
-          
-      console.log('Flowbite loaded', flowbite);
-    });
-
+    
    this.cart.getCart().subscribe({
     next:(res)=>{
       console.log(res);

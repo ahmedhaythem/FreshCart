@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FlowbiteService } from './core/services/flowbite.service';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
@@ -11,16 +11,23 @@ import { initFlowbite } from 'flowbite';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit{
   title = 'e-commerce';
   constructor(private flowbiteService: FlowbiteService,private spinner: NgxSpinnerService) {}
 
-  ngOnInit(): void {
-    
+  ngAfterViewInit(): void {
     this.flowbiteService.loadFlowbite(flowbite => {
           
       console.log('Flowbite loaded', flowbite);
     });
+  }
+  
+
+  OnInit(): void {
+    
+  
+
+
     this.spinner.show()
     setTimeout(() => {
       

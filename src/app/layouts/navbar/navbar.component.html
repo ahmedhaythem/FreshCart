@@ -5,7 +5,7 @@
             <img src="/images/freshcart-logo.svg" alt="">
         </a>
 
-        <button data-collapse-toggle="navbar-default" type="button"
+        <button (click)="toggleMenu()" data-collapse-toggle="navbar-default" type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
             aria-controls="navbar-default" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
@@ -15,7 +15,7 @@
             </svg>
         </button>
 
-        <div class="hidden w-full lg:flex flex-grow lg:w-auto" id="navbar-default">
+        <div [class.hidden]="isMenuHidden" class=" w-full lg:flex flex-grow lg:w-auto" id="navbar-default">
             @if (isLogin==true) {
             <ul
                 class="capitalize flex  flex-col p-4 lg:p-0 mt-4 border border-gray-300 rounded-lg bg-gray-300 lg:flex-row lg:space-x-3 rtl:space-x-reverse lg:mt-0 lg:border-0">
